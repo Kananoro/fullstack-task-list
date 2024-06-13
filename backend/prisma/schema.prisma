@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id              Int @id  @default(autoincrement())
+  accountNumber   String @unique
+  firstName       String
+  lastName        String?
+  middleName      String?
+  birthday        DateTime?
+  inn             String
+  responsible     User @relation("Responsible", fields: [responsibleFIO], references: [FIO])
+  responsibleFIO  String
+  status          Status @default(NOT_IN_WORK)
+}
+
+model User {
+  FIO             String @unique
+  login           String @unique
+  password        String
+  responsibles    Task[] @relation("Responsible")
+}
+
+enum Status {
+  NOT_IN_WORK
+  IN_WORK
+  CLOSED
+  CANCELED
+}

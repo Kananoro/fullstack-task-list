@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+:root {
+	--background-color: hsl(240, 21%, 12%);
+	--primary-color: hsl(237, 16%, 23%);
+	--secondary-color: hsl(233deg, 12%, 39%);
+	--text-color: hsl(226deg, 64%, 88%);
+	--error-color: hsl(343deg, 81%, 75%);
+	--focus-color: hsl(267deg, 84%, 81%);
+}
+
+body,
+html,
+#root {
+	width: 100%;
+	height: 100%;
+	font-family: "Poppins", sans-serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+	width: 3px;
+	/* height: 1px; */
+}
+
+/* Стили для трека (фона) скроллбара */
+::-webkit-scrollbar-track {
+	background: none;
+	border-radius: 1px;
+}
+
+/* Стили для ползунка (бегунка) скроллбара */
+::-webkit-scrollbar-thumb {
+	background: var(--secondary-color);
+	border-radius: 10px;
+}
+
+/* Стили для ползунка при наведении */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
